@@ -1,0 +1,45 @@
+﻿<Properties StartupConfiguration="{387369CB-A71A-4207-8D8C-E70895E00055}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Bugtracker/appsettings.json">
+    <Files>
+      <File FileName="../../../../Downloads/fork1.c" Line="10" Column="1" />
+      <File FileName="Bugtracker/Views/Home/Index.cshtml" />
+      <File FileName="Bugtracker/Controllers/AccountController.cs" />
+      <File FileName="Bugtracker/Views/Account/Register.cshtml" />
+      <File FileName="Bugtracker/Controllers/ProjectSelectController.cs" />
+      <File FileName="Bugtracker/Controllers/DashboardController.cs" />
+      <File FileName="Bugtracker/Startup.cs" Line="76" Column="16" />
+      <File FileName="Bugtracker/appsettings.json" Line="1" Column="1" />
+      <File FileName="Bugtracker/Views/ProjectSelect/AddProject.cshtml" />
+      <File FileName="Bugtracker/Views/Shared/_Layout.cshtml" />
+      <File FileName="Bugtracker/Views/Dashboard/Index.cshtml" />
+      <File FileName="Bugtracker/app.db" />
+      <File FileName="Bugtracker/Program.cs" />
+      <File FileName="Bugtracker/appsettings.Development.json" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Bugtracker" expanded="True">
+            <Node name="Bugtracker" expanded="True">
+              <Node name="Views" expanded="True">
+                <Node name="Dashboard" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
+              </Node>
+              <Node name="appsettings.json" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Bugtracker PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint enabled="false" file="/Users/zayaanmomin/Documents/Programming_side_projects/Bugtracker2/Bugtracker/Bugtracker/wwwroot/js/Ajax.js" relfile="Bugtracker/wwwroot/js/Ajax.js" line="19" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

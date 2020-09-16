@@ -1,0 +1,18 @@
+﻿@model Bugtracker.ViewModels.DeleteTicketsViewModel
+@{
+    Layout = null;
+}
+
+    <form class="text-center border border-light p-5" asp-controller="Ticket" asp-action="DeleteTickets" asp-route-projectId="@Model.ProjectId" asp-route-ticketId="@Model.TicketId" method="post" onsubmit="return jQueryAjaxPost(this);" autocomplete="off">
+
+
+        <p class="h4 mb-4">Delete Ticket</p>
+
+
+
+        <div style="height:30px"></div>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <button class="btn btn-primary" type="submit">Confirm</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </form>

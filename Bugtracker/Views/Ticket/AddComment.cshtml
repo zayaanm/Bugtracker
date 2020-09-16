@@ -1,0 +1,23 @@
+﻿@model Bugtracker.ViewModels.AddCommentViewModel
+
+@{
+    Layout = null;
+}
+
+<form class="text-center border border-light p-5" asp-controller="Ticket" asp-action="AddComment" asp-route-ticketId="@Model.TicketId" method="post" onsubmit="return jQueryAjaxPost(this);" autocomplete="off">
+
+    <p class="h4 mb-4">New Comment</p>
+
+    
+    <div class="form-group">
+
+        <textarea asp-for="Comment" rows="3" style="min-width: 100%"></textarea>
+    </div>
+
+
+    <div style="height:30px"></div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <button class="btn btn-primary text-center" type="submit">Submit</button>
+    <button type="button" class="btn btn-secondary text-center" data-dismiss="modal">Close</button>
+</form>

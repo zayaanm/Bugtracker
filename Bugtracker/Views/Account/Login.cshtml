@@ -1,0 +1,51 @@
+﻿@model LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+    
+}
+
+@section CSS{
+
+    <link rel="stylesheet" href="~/css/Authentication.css" type="text/css">
+}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Sign In</h5>
+                    <form class="form-signin" asp-controller="Account" asp-action="login" method="post">
+                        <div class="form-label-group">
+                            <input type="email" asp-for="Email" class="form-control" placeholder="Email address" required autofocus>
+                            <label asp-for="Email">Email address</label>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="password" asp-for="Password" class="form-control" placeholder="Password" required>
+                            <label asp-for="Password">Password</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox mb-3">
+                            <input type="checkbox" class="custom-control-input" asp-for="RememberMe">
+                            <label class="custom-control-label" asp-for="RememberMe">Remember password</label>
+                        </div>
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                        <div style="margin: 0 auto; text-align: center; margin-top:20px;">
+
+                            <p>Dont have an account?<a asp-controller="Account" asp-action="Register"> Register</a></p>
+
+                        </div>
+                        <hr class="my-4">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

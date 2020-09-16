@@ -1,0 +1,26 @@
+﻿@model Bugtracker.ViewModels.AddProjectViewModel
+@{ ViewData["Title"] = "AddProject"; }
+
+<form class="text-center border border-light p-5" asp-controller="ProjectSelect" asp-action="AddProject" method="post" onsubmit="return jQueryAjaxPost(this);" autocomplete="off">
+
+    <p class="h4 mb-4">Add Project</p>
+
+    <label asp-for="ProjectName">Name</label>
+    <div class="form-group">
+        <input class="form-control" placeholder="Project Name" asp-for="ProjectName">
+        <span asp-validation-for="ProjectName" class="text-danger"></span>
+    </div>
+
+    <label asp-for="ProjectDescription">Description</label>
+    <div class="form-group">
+
+        <textarea asp-for="ProjectDescription" rows="3" style="min-width: 100%">@Model.ProjectDescription</textarea>
+    </div>
+
+    
+    <div style="height:30px"></div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <button class="btn btn-primary" type="submit">Confirm</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</form>

@@ -1,0 +1,91 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-Bugtracker-98F06D0C-644D-42FC-870B-E327FA763070</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\Home.css" />
+    <None Include="wwwroot\images\backwardswave.png" />
+    <None Include="wwwroot\images\facebook.png" />
+    <None Include="wwwroot\images\insta.png" />
+    <None Include="wwwroot\images\linkedin.png" />
+    <None Include="wwwroot\images\PikPng.com_bcci-logo-png_2296998.png" />
+    <None Include="wwwroot\images\PikPng.com_books-png_1032465.png" />
+    <None Include="wwwroot\images\PikPng.com_business-woman-silhouette-png_1370340.png" />
+    <None Include="wwwroot\images\PikPng.com_money-pile-png_933880.png" />
+    <None Include="wwwroot\images\PikPng.com_network-png_1143710.png" />
+    <None Include="wwwroot\images\PikPng.com_sellfy-logo-png_3379936.png" />
+    <None Include="wwwroot\images\SeekPng.com_white-divider-png_406180.png" />
+    <None Include="wwwroot\images\twitter.png" />
+    <None Include="wwwroot\images\womanwithboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8"><IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+<PrivateAssets>all</PrivateAssets>
+</PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Audit.EntityFramework.Core" Version="16.1.2" />
+    <PackageReference Include="Audit.EntityFramework.Identity.Core" Version="16.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="20200811062356_637327238363301510.json" />
+    <Content Remove="20200811063319_637327243996707140.json" />
+    <Content Remove="wwwroot\css2\Home.css" />
+    <Content Remove="wwwroot\images2\backwardswave.png" />
+    <Content Remove="wwwroot\images2\facebook.png" />
+    <Content Remove="wwwroot\images2\insta.png" />
+    <Content Remove="wwwroot\images2\linkedin.png" />
+    <Content Remove="wwwroot\images2\PikPng.com_bcci-logo-png_2296998.png" />
+    <Content Remove="wwwroot\images2\PikPng.com_books-png_1032465.png" />
+    <Content Remove="wwwroot\images2\PikPng.com_business-woman-silhouette-png_1370340.png" />
+    <Content Remove="wwwroot\images2\PikPng.com_money-pile-png_933880.png" />
+    <Content Remove="wwwroot\images2\PikPng.com_network-png_1143710.png" />
+    <Content Remove="wwwroot\images2\PikPng.com_sellfy-logo-png_3379936.png" />
+    <Content Remove="wwwroot\images2\SeekPng.com_white-divider-png_406180.png" />
+    <Content Remove="wwwroot\images2\twitter.png" />
+    <Content Remove="wwwroot\images2\womanwithboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Account\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Models\Project\" />
+    <Folder Include="Models\Ticket\" />
+    <Folder Include="Models\Comments\" />
+    <Folder Include="Models\UserProject\" />
+    <Folder Include="Models\ApplicationUser\" />
+    <Folder Include="Views\ProjectSelect\" />
+    <Folder Include="Views\Dashboard\" />
+    <Folder Include="Security\" />
+    <Folder Include="Views\Shared\ProjectPartials\" />
+    <Folder Include="ViewModels\SelectProject\" />
+    <Folder Include="ViewModels\Usermanagement\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Views\ManageUsers\" />
+    <Folder Include="Views\Ticket\" />
+    <Folder Include="ViewModels\Ticket\" />
+    <Folder Include="Models\UserTicket\" />
+    <Folder Include="Models\Attachments\" />
+    <Folder Include="Views\MyTickets\" />
+    <Folder Include="ViewModels\MyTickets\" />
+    <Folder Include="ViewModels\DashBoard\" />
+    <Folder Include="ViewModels\Account\" />
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\Ticket\Audit_Tickets.cs" />
+    <Compile Remove="Migrations\20200811083148_audit.cs" />
+    <Compile Remove="Migrations\20200811083148_audit.Designer.cs" />
+  </ItemGroup>
+</Project>

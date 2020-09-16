@@ -1,0 +1,234 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<ApplicationUser> signinmanager;
+
+@{ ViewData["Title"] = "Home Page"; }
+
+
+@section CSS{
+
+    <link rel="stylesheet" href="~/css/Home.css" type="text/css">
+}
+
+@section Scripts{
+
+    <!--SMOOTHSCROLL-->
+    <script src="~/js/smoothscroll.js"></script>
+    <script>var scroll = new SmoothScroll('a[href*="#"]');</script>
+}
+
+
+
+
+
+<section id="nav-bar">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#"><img src="~/Images/PikPng.com_bcci-logo-png_2296998.png" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#top">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#over-view">OVERVIEW</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#demo">DEMO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#getting-started">GETTING STARTED</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#social-media">CONTACT</a>
+                </li>
+
+                @if (signinmanager.IsSignedIn(User))
+                {
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="ProjectSelect" asp-action="Projects">MY PROJECTS</a>
+            </li> }
+
+                        else
+                        {
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="ProjectSelect" asp-action="Projects">LOGIN</a>
+            </li>}
+
+
+            </ul>
+
+        </div>
+    </nav>
+</section>
+
+<!----BANNER-->
+
+<section id="banner">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <p class="promo-title">ZAYAAN'S BUGTRACKER</p>
+                <p>Improve your workflow and keep track of complex projects requiring multiple developers</p>
+                <div class="buttonContainer" >
+
+                    @if (signinmanager.IsSignedIn(User))
+                    {
+        <a asp-controller="ProjectSelect" asp-action="Projects"><button style="max-height:50px" class="btn"> <p>Continue</p></button></a> }
+
+    else
+    {
+
+<a asp-controller="Account" asp-action="Register"><button style="max-height:50px" class="btn"> <p>Sign Up</p></button></a>}
+
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+
+                <img src="../Images/bug.png" class="img-fluid">
+
+                <div style="height:60px"></div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <img src="../Images/SeekPng.com_white-divider-png_406180.png" class="bottom-img">
+
+
+</section>
+
+
+<!--SOME INFO-->
+
+<div id="over-view"></div>
+<section id="services">
+
+    <div class="container text-center">
+
+        <h1 class="title">OVERVIEW</h1>
+        <div class="row text-center">
+
+            <div class="col-md-4 services">
+
+                <img src="../Images/PikPng.com_money-pile-png_933880.png" class="service-img">
+                <h4>No Cost</h4>
+                <p>This bugtracker is completely free to use and is available to everybody!</p>
+            </div>
+
+            <div class="col-md-4 services">
+
+                <img src="../Images/PikPng.com_books-png_1032465.png" class="service-img">
+                <h4>Organization</h4>
+                <p>Keep track of your bugs and organize them using catagories</p>
+            </div>
+
+            <div class="col-md-4 services">
+
+                <img src="../Images/PikPng.com_network-png_1143710.png" class="service-img">
+                <h4>Connect</h4>
+                <p>Work collaboratively with team members and assign roles based on what each member's responsibilities are</p>
+            </div>
+
+
+        </div>
+    </div>
+
+</section>
+
+<!--DEMO-->
+
+<div id="demo"></div>
+<section id="about-us">
+
+    <div class="container" id="demo">
+
+        <h1 class="title text-center">DEMO</h1>
+        <div style="height:20px"></div>
+        <div style="text-align:center;">
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/JE39cnR1xG0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div style="height:20px"></div>
+    </div>
+
+    
+
+</section>
+
+<!--HOW IT WORKS-->
+
+<div id="getting-started"></div>
+<section id="services">
+
+    <div class="container">
+
+        <h1 class="title text-center">HOW IT WORKS</h1>
+        <div class="row">
+
+            <div class="col-md-6 about-us">
+
+                <p class="about-title">The Basics</p>
+                <ul>
+                    <li>Create a new project by clicking the create project button or click on the project name on the My Projects page to get redirected to the project</li>
+                    <li>Add users registered on the website to your project by entering thier email in the manage users tab</li>
+                    <li>Create a new ticket in the Project Tickets tab or view the details of a ticket by clicking the view button next to the ticket</li>
+                    <li>Add developers to a ticket by clicking the assign developers button while viewing a ticket</li>
+                    <li>The My Tickets tab in a project will display all tickets relevent to you within the current project</li>
+                    <li>The Dashboard in a project displays important project and ticket information</li>
+                </ul>
+            </div>
+
+            <div class="col-md-6">
+
+                <img src="../Images/PikPng.com_pc-icon-png_2626956.png" class="img-fluid works-img">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<!---Social media-->
+
+<section id="social-media">
+
+    <div class="container text-center">
+
+        <p>FIND ME ON SOCIAL MEDIA</p>
+
+        <div class="social-icons">
+
+            <a href="https://ca.linkedin.com/in/zayaan-momin" target="_blank"><img src="../Images/facebook.png"></a>
+            <a href="https://ca.linkedin.com/in/zayaan-momin" target="_blank"><img src="../Images/insta.png"></a>
+            <a href="https://ca.linkedin.com/in/zayaan-momin" target="_blank"><img src="../Images/linkedin.png"></a>
+            <a href="https://ca.linkedin.com/in/zayaan-momin" target="_blank"><img src="../Images/twitter.png"></a>
+        </div>
+    </div>
+</section>
+
+<!--FOOTER-->
+
+<section id="footer">
+    <img src="../Images/backwardswave.png" class="footer-img">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 footer-box">
+                <img src="../Images/PikPng.com_bcci-logo-png_2296998.png">
+                <p>Thank you for your interest! The bugtracker is in the demo stages and new feautures will be included soon.</p>
+            </div>
+
+
+</section>
+
+
+

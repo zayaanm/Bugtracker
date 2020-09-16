@@ -1,0 +1,71 @@
+﻿@model RegisterModel
+
+@{
+    ViewData["Title"] = "Register";
+    
+}
+
+
+@section CSS{
+
+    <link rel="stylesheet" href="~/css/Authentication.css" type="text/css">
+}
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Register</h5>
+                        <form class="form-signin" asp-controller="Account" asp-action="Register" method="post">
+
+
+                            <div class="form-label-group">
+                                <input class="form-control" placeholder="Email address" asp-for="Email">
+                                <label asp-for="Email">Email address</label>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-label-group">
+                                <input class="form-control" placeholder="First Name" asp-for="FirstName">
+                                <label asp-for="FirstName">First Name</label>
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input class="form-control" placeholder="Last Name" asp-for="LastName">
+                                <label asp-for="LastName">Last Name</label>
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+
+
+
+                            <div class="form-label-group">
+                                <input type="password" class="form-control" placeholder="Password" asp-for="Password">
+                                <label asp-for="Password">Password</label>
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="VerifyPassword">
+                                <label asp-for="ConfirmPassword">Verify Password</label>
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+                            </div>
+
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+
+                            <div style="margin: 0 auto; text-align: center; margin-top:20px;">
+
+                                <p>Have an account?<a asp-controller="Account" asp-action="Login"> Login</a></p>
+
+                            </div>
+
+                           </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

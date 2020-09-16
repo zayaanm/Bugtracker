@@ -1,0 +1,53 @@
+﻿@model IEnumerable<UserProject> 
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Project Users</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th style="text-align:center">Name</th>
+                        <th style="text-align:center">Email</th>
+                        <th style="text-align:center">Role</th>
+                        <th style="text-align:center">Date Added</th>
+                        <th style="text-align:center">Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th style="text-align:center">Name</th>
+                        <th style="text-align:center">Email</th>
+                        <th style="text-align:center">Role</th>
+                        <th style="text-align:center">Date Added</th>
+                        <th style="text-align:center">Actions</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+
+                    @foreach (var user in Model)
+                    {
+
+                        <tr>
+                            <td align="center">@user.ApplicationUser.FirstName @user.ApplicationUser.LastName</td>
+                            <td align="center">@user.ApplicationUser.Email</td>
+                            <td align="center">@user.UserRole</td>
+                            <td align="center">@user.DateAdded</td>
+                            <td align="center">
+                                <button onclick="showInPopup('@Url.Action("EditUsers","ManageUsers", new { projectId = user.ProjectId, userId = user.ApplicationUser.Id}, Context.Request.Scheme)', 'Edit User')" type="button" class="btn btn-info d-inline">Edit Role</button>
+                                <button onclick="showInPopup('@Url.Action("DeleteUsers","ManageUsers", new { projectId = user.ProjectId, userId = user.ApplicationUser.Id}, Context.Request.Scheme)', 'Delete User')" type="button" class="btn btn-danger d-inline" >Remove</button>
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+                

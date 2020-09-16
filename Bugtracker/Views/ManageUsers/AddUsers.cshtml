@@ -1,0 +1,26 @@
+﻿@model Bugtracker.ViewModels.AddUsersViewModel
+
+@{
+    Layout = null;
+}
+
+
+    <form class="text-center border border-light p-5" asp-controller="ManageUsers" asp-action="AddUsers" asp-route-projectId="@Model.projectId" onsubmit="return jQueryAjaxPost(this);" autocomplete="off">
+
+        <p class="h4 mb-4">Add User</p>
+
+        <div class="form-label-group">
+            <input type="email" class="form-control mb-4" class="form-control" placeholder="User Email" asp-for="UserEmail" required>
+            <span asp-validation-for="UserEmail" class="text-danger"></span>
+        </div>
+
+        <label>Select Role</label>
+        <select class="form-control" asp-for="Role" asp-items="Model.RoleChoose" required></select>
+
+        <div style="height:30px"></div>
+
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </form>

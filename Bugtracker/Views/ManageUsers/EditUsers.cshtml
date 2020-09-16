@@ -1,0 +1,21 @@
+﻿@model Bugtracker.ViewModels.EditUsersViewModel
+
+@{
+    Layout = null;
+}
+
+<form class="text-center border border-light p-5" asp-controller="ManageUsers" asp-action="EditUsers" asp-route-projectId="@Model.projectId" asp-route-userId="@Model.UserId" onsubmit="return jQueryAjaxPost(this);" autocomplete="off">
+
+    <p class="h4 mb-4">Edit Role</p>
+
+
+    <label>Select Role</label>
+    <select class="form-control" asp-for="Role" asp-items="Model.RoleChoose" required></select>
+
+    <div style="height:30px"></div>
+
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</form>

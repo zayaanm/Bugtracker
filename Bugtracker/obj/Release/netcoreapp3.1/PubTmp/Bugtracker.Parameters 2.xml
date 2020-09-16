@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="ZayaanBT" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^/Users/zayaanmomin/Documents/Programming_side_projects/Bugtracker2/Bugtracker/Bugtracker/obj/Release/netcoreapp3\.1/PubTmp/Out/$" />
+  </parameter>
+</parameters>

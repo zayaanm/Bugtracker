@@ -1,0 +1,370 @@
+﻿@model Bugtracker.ViewModels.IndividualTicketViewModel
+
+@{
+    ViewData["Title"] = "IndividualTicket";
+}
+
+
+@section CSS{
+
+    <!-- Custom fonts for this template-->
+    <link href="~/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <link href="~/css/jquery-customselect-1.9.1.css" rel="stylesheet" type="text/css">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+ 
+
+}
+
+
+@section Meta{
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Individual ticket view">
+    <meta name="author" content="Zayaan Momin">
+    <title>Ticket @Model.Ticket.TicketName</title>
+}
+
+@section Scripts{
+
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/js/sb-admin-2.js"></script>
+
+    <script type="text/javascript">function postForm() {
+            document.logout.submit();
+        }</script>
+
+
+    <script src="~/js/Ajax.js" asp-append-version="true"></script>
+
+}
+
+<body id="page-top">
+
+    <div class="modal" tabindex="-1" role="dialog" id="form-modal" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!--Sidebar-->
+        @await Html.PartialAsync("ProjectPartials/PageWrapperPartial", Model.Project)
+
+
+
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+
+                @await Html.PartialAsync("ProjectPartials/TopBarPartial")
+
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <button onclick="showInPopup('@Url.Action("EditTickets","Ticket", new { projectId = Model.Project.ProjectId, ticketId = Model.Ticket.TicketId}, Context.Request.Scheme)', 'Edit Ticket')" type="button" class="btn btn-success d-inline">Edit Ticket</button>
+                    <button onclick="showInPopup('@Url.Action("AddDevelopers","Ticket", new { projectId = Model.Project.ProjectId, ticketId = Model.Ticket.TicketId}, Context.Request.Scheme)', 'Add Developer')" type="button" class="btn btn-info d-inline">Assign Developers</button>
+                    <button onclick="showInPopup('@Url.Action("RemoveDevelopers","Ticket", new { projectId = Model.Project.ProjectId, ticketId = Model.Ticket.TicketId}, Context.Request.Scheme)', 'Remove Developer')" type="button" class="btn btn-danger d-inline">Remove Developers</button>
+
+                    <div style="height:20px"></div>
+                    <div class="row">
+
+                        <div class="col-lg-6">
+
+                            <!-- Ticket Details -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Ticket Details</h6>
+                                </div>
+                                <div class="card-body text-center">
+                                    <div class="row">
+                                        <div class="container">
+                                            <div class="row" style="margin-right:20px">
+
+                                                <div class="col">
+                                                    <h6>Name</h6>
+                                                    <p>@Model.Ticket.TicketName</p>
+                                                </div>
+
+                                                <div class="col">
+                                                    <h6>Assigned Developers</h6>
+
+                                                    @foreach (var Developer in Model.TicketDevelopers)
+                                                    {
+                                        <p>@Developer.ApplicationUser.Email</p>}
+
+                                                    @if (Model.TicketDevelopers.Count == 0)
+                                                    {
+                                        <p>No Developer Assigned</p>}
+
+                                                </div>
+
+
+                                                <div class="w-100"></div>
+                                                <br />
+
+                                                <div class="col">
+                                                    <h6>Status</h6>
+                                                    <p>@Model.Ticket.TicketStatus</p>
+
+                                                </div>
+
+                                                <div class="col">
+                                                    <h6>Priority</h6>
+                                                    <p>@Model.Ticket.TicketPriority</p>
+
+                                                </div>
+
+                                                <div class="w-100"></div>
+                                                <br />
+
+                                                <div class="col">
+                                                    <h6>Type</h6>
+                                                    <p>@Model.Ticket.TicketType</p>
+
+                                                </div>
+
+                                                <div class="col">
+                                                    <h6>Last Updated</h6>
+                                                    <p>@Model.Ticket.TicketUpdated</p>
+
+                                                </div>
+
+                                                <div class="w-100"></div>
+                                                <br />
+
+                                                <div class="col">
+                                                    <h6>Created</h6>
+                                                    <p>@Model.Ticket.TicketCreated</p>
+
+                                                </div>
+
+                                                <div class="col">
+                                                    <h6>Submitter</h6>
+                                                    <p>@Model.Ticket.SubmitterEmail</p>
+
+                                                </div>
+
+                                                <div class="w-100"></div>
+                                                <br />
+
+                                                <div class="col">
+                                                    <h6>Description</h6>
+                                                    <p>@Model.Ticket.TicketDescription</p>
+
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ticket Changes -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Ticket Changes</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th style="text-align:center">Updater</th>
+                                                    <th style="text-align:center">Priority</th>
+                                                    <th style="text-align:center">Type</th>
+                                                    <th style="text-align:center">Status</th>
+                                                    <th style="text-align:center">Description</th>
+                                                    <th style="text-align:center">Updated</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                                @foreach (var audit in Model.AuditTickets)
+                                                {
+
+                                    <tr>
+                                        <td align="center">@audit.UpdatedEmail</td>
+                                        <td align="center">@audit.TicketPriority</td>
+                                        <td align="center">@audit.TicketType</td>
+                                        <td align="center">@audit.TicketStatus</td>
+                                        @if (@audit.DescriptionUpdated == false)
+                                        {
+                        <td align="center">Unchanged</td> }
+
+                                        else
+                                        {
+                                            <td align="center">Changed</td>
+                                        }
+
+                                        <td align="center">@audit.TicketUpdated</td>
+
+                                    </tr>}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                    @if (Model.AuditTickets.Count == 0)
+                                    {
+                        <h6 style="text-align:center">No Changes</h6>}
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-6">
+
+                            <!-- Ticket Attachments -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Ticket Attachments</h6>
+                                </div>
+                                <div class="card-body">
+
+                                    <div class="table-responsive">
+                                        <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th style="text-align:center">Attachment</th>
+                                                    <th style="text-align:center">Submitter</th>
+                                                    <th style="text-align:center">Posted</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                                @foreach (var attachment in Model.Attachments)
+                                                {
+
+                                    <tr>
+                                        <td align="center"><form asp-controller="Ticket" asp-action="DownloadFile" asp-route-attachmentId="@attachment.AttachmentId"><button type="submit" class="btn btn-link">@attachment.ContentName</button></form></td>
+                                        <td align="center">@attachment.UserEmail</td>
+                                        <td align="center">@attachment.CreatedOn</td>
+
+                                    </tr>}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                    @if (Model.Attachments.Count == 0)
+                                    {
+                        <h6 style="text-align:center">No Attachments</h6>}
+                                    <hr />
+                                    <!--Partial add attachments form-->
+
+                                    @await Html.PartialAsync("AddAttachment", Model.AddAttachmentViewModel)
+
+                                </div>
+                            </div>
+
+                            <!-- Ticket Comments -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Ticket Comments</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th style="text-align:center">Comment</th>
+                                                    <th style="text-align:center">Submitter</th>
+                                                    <th style="text-align:center">Posted</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                                @foreach (var comment in Model.Comments)
+                                                {
+
+                                    <tr>
+                                        <td align="center">@comment.Text</td>
+                                        <td align="center">@comment.UserEmail</td>
+                                        <td align="center">@comment.CreatedOn</td>
+
+                                    </tr>}
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                    @if (Model.Comments.Count == 0)
+                                    {
+                        <h6 style="text-align:center">No Comments</h6>}
+                                    <hr />
+                                    <div>
+                                        <button onclick="showInPopup('@Url.Action("AddComment","Ticket", new { ticketId = Model.Ticket.TicketId}, Context.Request.Scheme)', 'New Comment')" type="button" class="btn btn-success d-inline pull-right">New Comment</button>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Footer -->
+
+                    @await Html.PartialAsync("ProjectPartials/FooterPartial")
+
+                    <!-- End of Footer -->
+
+
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+
+    </div>
+    <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+
+
+
+</body>
+
+
+
+

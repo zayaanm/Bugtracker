@@ -1,0 +1,16 @@
+﻿@model Bugtracker.ViewModels.AddAttachmentViewModel
+
+    <form enctype="multipart/form-data" id="AttachmentForm" asp-controller="Ticket" asp-action="AddAttachment" asp-route-ticketId="@Model.TicketId" method="post" onsubmit="return AttachmentAjaxPost(this);">
+
+        <div style="text-align:center">
+
+            <input type="file" name="file" />
+            <button type="submit" class="btn btn-success d-inline">Upload</button>
+
+        </div>
+        
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    </form>
+
+    

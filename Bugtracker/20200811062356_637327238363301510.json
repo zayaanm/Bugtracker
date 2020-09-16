@@ -1,0 +1,41 @@
+{
+  "EventType": "DefaultAuditContext",
+  "Environment": {
+    "UserName": "zayaanmomin",
+    "MachineName": "Zayaans-MacBook-Pro",
+    "DomainName": "Zayaans-MacBook-Pro",
+    "CallingMethodName": "Bugtracker.Controllers.TicketController+<AddTickets>d__7.MoveNext()",
+    "AssemblyName": "Bugtracker, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "Culture": ""
+  },
+  "StartDate": "2020-08-11T06:23:56.236814Z",
+  "EndDate": "2020-08-11T06:23:56.329121Z",
+  "Duration": 92,
+  "EntityFrameworkEvent": {
+    "Database": "users",
+    "Entries": [
+      {
+        "Table": "Tickets",
+        "Action": "Insert",
+        "PrimaryKey": {
+          "TicketId": 55
+        },
+        "ColumnValues": {
+          "TicketId": 55,
+          "ProjectId": 1025,
+          "SubmitterEmail": "texttt2223@gmail.com",
+          "TicketCreated": "2020-08-11T02:23:56.08564-04:00",
+          "TicketDescription": "bj",
+          "TicketName": "test",
+          "TicketPriority": "High",
+          "TicketStatus": "Open",
+          "TicketType": "Bug/Error",
+          "TicketUpdated": null
+        },
+        "Valid": true
+      }
+    ],
+    "Result": 1,
+    "Success": true
+  }
+}

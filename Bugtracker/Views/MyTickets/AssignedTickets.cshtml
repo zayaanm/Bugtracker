@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Tickets>
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Assigned Tickets</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="AssignedTickets" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th style="text-align:center">Name</th>
+                        <th style="text-align:center">Priority</th>
+                        <th style="text-align:center">Status</th>
+                        <th style="text-align:center">Type</th>
+                        <th style="text-align:center">Created</th>
+                        <th style="text-align:center">Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th style="text-align:center">Title</th>
+                        <th style="text-align:center">Priority</th>
+                        <th style="text-align:center">Status</th>
+                        <th style="text-align:center">Type</th>
+                        <th style="text-align:center">Created</th>
+                        <th style="text-align:center">Actions</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+
+                    @foreach (var ticket in Model)
+                    {
+
+                        <tr>
+                            <td align="center">@ticket.TicketName</td>
+                            <td align="center">@ticket.TicketPriority</td>
+                            <td align="center">@ticket.TicketStatus</td>
+                            <td align="center">@ticket.TicketType</td>
+                            <td align="center">@ticket.TicketCreated</td>
+                            <td align="center">
+                                <button onclick="showInPopup('@Url.Action("EditTickets","Ticket", new { projectId = ticket.ProjectId, ticketId = ticket.TicketId}, Context.Request.Scheme)', 'Edit Ticket')" type="button" class="btn btn-success d-inline">Edit</button>
+                                <form asp-controller="Ticket" asp-action="IndividualTicket" asp-route-projectID="@ticket.ProjectId" asp-route-ticketId="@ticket.TicketId" class="d-inline">
+                                    <input type="submit" value="View" class="btn btn-info" />
+                                </form>
+                                <button onclick="showInPopup('@Url.Action("DeleteTickets","Ticket", new { projectId = ticket.ProjectId, ticketId = ticket.TicketId}, Context.Request.Scheme)', 'Delete Ticket')" type="button" class="btn btn-danger d-inline">Delete</button>
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

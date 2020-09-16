@@ -1,0 +1,89 @@
+﻿@model Project
+
+
+<!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <div class="sidebar-brand d-flex align-items-center justify-content-center">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fa fa-bug" aria-hidden="true"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">@Model.ProjectName</div>
+        </div>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <a class="nav-link" asp-controller="Dashboard" asp-action="index" asp-route-id="@Model.ProjectId">
+                <i class="fa fa-tachometer" aria-hidden="true"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Users
+        </div>
+
+        <!-- Nav Item - Project Users-->
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="ManageUsers" asp-action="UserManagement" asp-route-id="@Model.ProjectId">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                <span>Project Users</span>
+            </a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Tickets
+        </div>
+
+        <!-- Nav Item - Project Users-->
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Ticket" asp-action="Tickets" asp-route-id="@Model.ProjectId">
+                <i class="fa fa-ticket" aria-hidden="true"></i>
+                <span>Project Tickets</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="MyTickets" asp-action="Tickets" asp-route-projectId="@Model.ProjectId">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span>My Tickets</span>
+            </a>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Account
+        </div>
+
+        <!-- Nav Item - Project Users-->
+        <li class="nav-item">
+            <a class="nav-link">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+                <span>Settings</span>
+            </a>
+        </li>
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+
+
+    </ul>

@@ -1,0 +1,21 @@
+﻿@model Bugtracker.ViewModels.RemoveProjectViewModel
+
+@{
+    Layout = null;
+}
+
+<form class="text-center border border-light p-5" asp-controller="ProjectSelect" asp-action="RemoveProject" method="post" onsubmit="return jQueryAjaxPost(this);" autocomplete="off">
+
+    <p class="h4 mb-4">Remove Project</p>
+
+    <select class="form-control" asp-for="ProjectId" asp-items="@(new SelectList(ViewBag.projects,"ProjectId", "ProjectName"))">
+        <option value=''>None - Please Select</option>
+
+    </select>
+
+    <div style="height:30px"></div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <button class="btn btn-primary" type="submit">Confirm</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</form>
