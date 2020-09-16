@@ -17,6 +17,8 @@ This website is deployed on Microsoft Azure cloud computing services. The sql se
 ## Built With
 
 * [.NET CORE MVC](https://dotnet.microsoft.com/download/dotnet-core/3.1) - The web framework used
+* [BOOTSTRAP](https://getbootstrap.com/) - Framework
+* [AJAX](https://www.keycdn.com/support/ajax-programming#:~:text=Ajax%20is%20short%20for%20Asynchronous,and%20from%20a%20database%20%2F%20server.) - Framework
 * [AUDIT .NET](https://github.com/thepirat000/Audit.NET) - Dependency
 * [ASPNETCORE IDENTITY](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-3.1&tabs=visual-studio) - Dependency
 * [MYSQL](https://www.mysql.com/) - Database
