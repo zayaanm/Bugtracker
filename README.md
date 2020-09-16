@@ -4,7 +4,7 @@ This website was created to track any issues or extra features you may want to a
 
 ## Live website
  
-* [BugTracker](https://zayaanbt.azurewebsites.net)
+* [Bugtracker](https://zayaanbt.azurewebsites.net)
 
 ## Getting Started
 
@@ -18,8 +18,8 @@ This website is deployed on Microsoft Azure cloud computing services. The sql se
 
 * [.NET CORE MVC](https://dotnet.microsoft.com/download/dotnet-core/3.1) - The web framework used
 * [AUDIT .NET](https://github.com/thepirat000/Audit.NET) - Dependency
-* [IDENTITY](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-3.1&tabs=visual-studio) - Dependency
-* [MYSQL]() - Dependency
+* [ASPNETCORE IDENTITY](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-3.1&tabs=visual-studio) - Dependency
+* [MYSQL](https://www.mysql.com/) - Database
 
 ## Contributing
 
