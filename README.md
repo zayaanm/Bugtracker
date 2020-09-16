@@ -21,10 +21,6 @@ This website is deployed on Microsoft Azure cloud computing services. The sql se
 * [ASPNETCORE IDENTITY](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-3.1&tabs=visual-studio) - Dependency
 * [MYSQL](https://www.mysql.com/) - Database
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Authors
 
 * **Zayaan Momin** - [zayaanm](https://github.com/zayaanm)
